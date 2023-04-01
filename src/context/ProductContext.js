@@ -11,9 +11,10 @@ export const ProductContextProvider = ({ children }) => {
 
     const [size, setSize] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
-    let localStorageData = JSON.parse(localStorage.getItem("auth"))
-    const token = localStorageData.token
+
     useEffect(() => {
+        let localStorageData = JSON.parse(localStorage.getItem("auth"))
+        const token = localStorageData.token
         const getProducts = async () => {
 
             const params = {
@@ -47,6 +48,8 @@ export const ProductContextProvider = ({ children }) => {
     }, [currentPage, sortedData])
 
     useEffect(() => {
+        let localStorageData = JSON.parse(localStorage.getItem("auth"))
+        const token = localStorageData.token
         const getSearch = async () => {
             await fetch(`https://toko.ox-sys.com/variations`, {
                 method: 'GET',
