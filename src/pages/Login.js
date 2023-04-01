@@ -1,10 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-import { async } from 'q'
 
 function Login() {
     const { getUser, seterror, error } = useContext(AuthContext)
-
 
     const SubmitForm = async (e) => {
         e.preventDefault()
@@ -38,7 +36,6 @@ function Login() {
             .catch(() => {
                 seterror("Company name or Username or password wrong! ")
             });
-
     }
 
     return (
